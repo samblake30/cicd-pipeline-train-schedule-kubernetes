@@ -1,8 +1,8 @@
 pipeline {
     agent any
-    /*environment {
+    environment {
         DOCKER_IMAGE_NAME = "samblake30/train-schedule"
-    }*/
+    }
     stages {
         stage('Build') {
             steps {
@@ -17,7 +17,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build(samblake30/train-schedule)
+                    app = docker.build(DOCKER_IMAGE_NAME)
                     app.inside {
                         sh 'echo Hello, World!'
                     }
